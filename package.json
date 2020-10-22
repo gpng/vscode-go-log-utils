@@ -1,0 +1,77 @@
+{
+	"name": "go-log-utils",
+	"displayName": "Go Log Utils",
+	"description": "Help insert and remove log.(Printf|Println|Print) statements",
+	"version": "0.0.1",
+	"publisher": "gpng",
+	"repository": "https://github.com/gpng/vscode-go-log-utils",
+	"engines": {
+		"vscode": "^1.50.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:go-log-utils.insertLogStatement",
+		"onCommand:go-log-utils.deleteAllLogStatements"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "go-log-utils.insertLogStatement",
+				"title": "Insert Log Statement"
+			},
+			{
+				"command": "go-log-utils.deleteAllLogStatements",
+				"title": "Delete All Log Statements"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "go-log-utils.insertLogStatement",
+				"key": "shift+ctrl+l",
+				"mac": "shift+cmd+l",
+				"when": "editorTextFocus && editorLangId == go"
+			},
+			{
+				"command": "go-log-utils.deleteAllLogStatements",
+				"key": "shift+ctrl+d",
+				"mac": "shift+cmd+d"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "go-log-utils.insertLogStatement",
+					"when": "editorLangId == go"
+				},
+				{
+					"command": "go-log-utils.deleteAllLogStatements",
+					"when": "editorLangId == go"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.50.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.9.0",
+		"@typescript-eslint/eslint-plugin": "^4.1.1",
+		"@typescript-eslint/parser": "^4.1.1",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.0.2",
+		"vscode-test": "^1.4.0"
+	}
+}
