@@ -4,6 +4,10 @@ Easily insert and remove log.(Printf|Println|Print) in go files
 
 Credit to [javascript-console-utils](https://github.com/whtouche/vscode-js-console-utils)
 
+# Installation
+
+Published and distributed on the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=gpng.go-log-utils)
+
 ## Features
 
 In any `.go` file,
